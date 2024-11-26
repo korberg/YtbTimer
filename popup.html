@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .title {
+      background-color: #ff0000;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 2em;
+    }
+    input {
+      width: 50px;
+      padding: 5px;
+      text-align: center;
+      font-size: 1.4em;
+    }
+    button {
+      padding: 8px;
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      min-width: 45px;
+    }
+    button:disabled {
+      background-color: #cccccc;
+    }
+    .time-inputs {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+    }
+    .time-label {
+        font-size: 1.2em;
+    }
+    #countdown {
+      text-align: center;
+      margin: 10px 0;
+      padding: 10px;
+      height: 40px;
+      width: 80%;
+    }
+    #countdown-time {
+        font-size: 3em;
+        font-weight: bold;
+        color: #ff0000;
+    }
+    .action-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 5px;
+      margin: 10px 0;
+      min-width: 100px;
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+    .check-label {
+      font-size: 1.2em;
+    }
+    .time-buttons {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 5px;
+      margin: 10px 0;
+    }
+    .time-button {
+      padding: 5px;
+      font-size: 1.2em;
+      background-color: #666;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 5px;
+      margin-top: 10px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    .options {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      margin-top: 10px;
+      width: 80%;
+      padding: 0 20px;
+    }
+    .option-item {
+      display: flex;
+    }
+    #status {
+      color: #666;
+      font-size: 1em;
+      text-align: center;
+      margin-top: 10px;
+    }
+    #attribution {
+      color: #666;
+      font-size: 1em;
+      text-decoration: underline;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 10px;
+    }
+    #attributionContent {
+      color: #666;
+      font-size: 1em;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+    .error {
+      color: #ff0000;
+    }
+    .alarm-button {
+        margin: 0 auto;
+        font-size: 1.8em;
+        background-color: #ff4444;
+        color: white;
+        border: 2px dashed #ff0000;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: bold;
+
+    }
+    .alarm-button:hover {
+        background-color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">YouTube Stop/Timer</div>
+    <div class="time-inputs">
+      <input type="number" id="hours" min="0" max="23" value="1">
+      <label class="time-label">h</label>
+      <input type="number" id="minutes" min="0" max="59" value="30">
+      <label class="time-label">m</label>
+    </div>
+    <div class="time-buttons">
+      <button class="time-button" data-adjust="-60">-1h</button>
+      <button class="time-button" data-adjust="-15">-15m</button>
+      <button class="time-button" data-adjust="-5">-5m</button>
+      <button class="time-button" data-adjust="5">+5m</button>
+      <button class="time-button" data-adjust="15">+15m</button>
+      <button class="time-button" data-adjust="60">+1h</button>
+    </div>
+    <div id="countdown">
+      <div id="countdown-time">00:00:00</div>
+      <button id="stopAlarm" style="display: none;" class="alarm-button">STOP ALARM</button>
+    </div>
+    <div class="actions">
+      <button class="action-buttons" id="startTimer">Start Timer</button>
+      <button class="action-buttons" id="stopTimer" disabled>Stop Timer</button>
+    </div>
+    <div class="options">
+      <div class="option-item">
+        <input type="checkbox" id="stopMedia" checked>
+        <label class="check-label" for="stopMedia">Stop media</label>
+      </div>
+      <div class="option-item">
+        <input type="checkbox" id="soundAlert">
+        <label class="check-label" for="soundAlert">Sound alert *</label>
+      </div>
+    </div>
+    <div id="status"></div>
+    <div id="attribution">Attribution</div>
+    <div id="attributionContent" class="hidden">
+        <p>Ringing Analog Alarm Clock by oliwoli -- <br>
+        <a href="https://freesound.org/s/665944/" target="_blank">https://freesound.org/s/665944/</a> <br>
+        -- License: Attribution 4.0</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

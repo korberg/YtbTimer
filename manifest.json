@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Timer",
+  "version": "1.0",
+  "description": "Stop YouTube videos after a set time",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "web_accessible_resources": [{
+    "resources": ["alarmclocksound_base64.json"],
+    "matches": ["*://*.youtube.com/*"]
+  }],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
