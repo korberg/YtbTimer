@@ -2,8 +2,19 @@
 <html>
 <head>
   <style>
+    :root {
+      --primary-color: #b40202;
+      --secondary-color: #d3c0a6; 
+      --text-light: #dddddd;
+      --text-dark: #000000;
+      --text-notes: #bdbdbd;
+      --background-color: #565656;/*#beac92;*/
+      --disabled-color: #808080;
+      --button-color: #3f3f3f;
+    }
     body {
       width: 300px;
+      background-color: var(--background-color);
       padding: 10px;
       font-family: Arial, sans-serif;
     }
@@ -14,8 +25,8 @@
       align-items: center;
     }
     .title {
-      background-color: #ff0000;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--text-light);
       padding: 10px;
       width: 100%;
       text-align: center;
@@ -29,18 +40,23 @@
       padding: 5px;
       text-align: center;
       font-size: 1.4em;
+      font-weight: bold;
+      background-color: var(--secondary-color);
+    }
+    .checkbox {
+      color: var(--text-dark);
     }
     button {
       padding: 8px;
-      background-color: #ff0000;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--text-light);
       border: none;
       border-radius: 4px;
       cursor: pointer;
       min-width: 45px;
     }
     button:disabled {
-      background-color: #cccccc;
+      background-color: var(--disabled-color);
     }
     .time-inputs {
       display: flex;
@@ -50,6 +66,8 @@
     }
     .time-label {
         font-size: 1.2em;
+        font-weight: bold;
+        color: var(--text-light);
     }
     #countdown {
       text-align: center;
@@ -61,7 +79,7 @@
     #countdown-time {
         font-size: 3em;
         font-weight: bold;
-        color: #ff0000;
+        color: var(--secondary-color);
     }
     .action-buttons {
       display: flex;
@@ -75,6 +93,8 @@
     }
     .check-label {
       font-size: 1.2em;
+      font-weight: bold;
+      color: var(--text-light);
     }
     .time-buttons {
       display: grid;
@@ -85,8 +105,8 @@
     .time-button {
       padding: 5px;
       font-size: 1.2em;
-      background-color: #666;
-      color: white;
+      background-color: var(--button-color);
+      color: var(--text-light);
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -112,13 +132,13 @@
       display: flex;
     }
     #status {
-      color: #666;
+      color: var(--text-notes);
       font-size: 1em;
       text-align: center;
       margin-top: 10px;
     }
     #attribution {
-      color: #666;
+      color: var(--text-notes);
       font-size: 1em;
       text-decoration: underline;
       cursor: pointer;
@@ -126,7 +146,7 @@
       margin-top: 10px;
     }
     #attributionContent {
-      color: #666;
+      color: var(--text-notes);
       font-size: 1em;
       text-align: center;
       margin-top: 10px;
@@ -135,14 +155,14 @@
       display: none;
     }
     .error {
-      color: #ff0000;
+      color: var(--primary-color);
     }
     .alarm-button {
         margin: 0 auto;
         font-size: 1.8em;
         background-color: #ff4444;
-        color: white;
-        border: 2px dashed #ff0000;
+        color: var(--text-light);
+        border: 2px dashed var(--primary-color);
         border-radius: 4px;
         padding: 8px 16px;
         cursor: pointer;
@@ -150,7 +170,7 @@
 
     }
     .alarm-button:hover {
-        background-color: #ff0000;
+        background-color: var(--primary-color);
     }
   </style>
 </head>
@@ -181,11 +201,11 @@
     </div>
     <div class="options">
       <div class="option-item">
-        <input type="checkbox" id="stopMedia" checked>
+        <input type="checkbox" class="checkbox" id="stopMedia" checked>
         <label class="check-label" for="stopMedia">Stop media</label>
       </div>
       <div class="option-item">
-        <input type="checkbox" id="soundAlert">
+        <input type="checkbox" class="checkbox" id="soundAlert">
         <label class="check-label" for="soundAlert">Sound alert *</label>
       </div>
     </div>

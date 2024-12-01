@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.local.get(
     ['timerActive', 'endTime', 'hours', 'minutes', 'stopMedia', 'soundAlert', 'isAlarmRinging'], 
     (result) => {hours
-      hoursInput.value = result.hours || 1;
+      hoursInput.value = result.hours || 0;
       minutesInput.value = result.minutes || 30;
       stopMediaCheckbox.checked = result.stopMedia !== false;
       soundAlertCheckbox.checked = result.soundAlert || false;
